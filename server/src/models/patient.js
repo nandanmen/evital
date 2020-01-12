@@ -5,42 +5,42 @@ const PulseRateSchema = new mongoose.Schema({
   pulseRate: {
     type: Number
   }
-});
+}, { _id: false });
 
 const BloodPressureSchema = new mongoose.Schema({
   time : { type : Date, default: Date.now },
   bloodPressure: {
     type: Number
   }
-});
+}, { _id: false });
 
 const BodyTempSchema = new mongoose.Schema({
   time : { type : Date, default: Date.now },
   bodyTemp: {
     type: Number
   }
-});
+} , { _id: false });
 
 const RespRateSchema = new mongoose.Schema({
   time : { type : Date, default: Date.now },
   respRate: {
     type: Number
   }
-});
+}, { _id: false });
 
 const TasksSchema = new mongoose.Schema({
   time : { type : Date, default: Date.now },
-  task: {
-    type: String
+  taskList: {
+    type: Array
   }
-});
+}, { _id: false });
 
 const PrescriptionSchema = new mongoose.Schema({
   time : { type : Date, default: Date.now },
   prescription: {
-    type: String
+    type: Array
   }
-});
+}, { _id: false });
 
 const PatientSchema = new mongoose.Schema({
   name:{
@@ -65,12 +65,12 @@ const PatientSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  pulseRate: PulseRateSchema,
-  bloodPressure: BloodPressureSchema,
-  bodyTemp:BodyTempSchema,
-  respirationRate:RespRateSchema,
-  tasks:TasksSchema,
-  prescription:PrescriptionSchema
+  pulseRates: [PulseRateSchema],
+  bloodPressures: [BloodPressureSchema],
+  bodyTemps:[BodyTempSchema],
+  respirationRates:[RespRateSchema],
+  tasks:[TasksSchema],
+  prescriptions:[PrescriptionSchema]
 });
 
 module.exports = mongoose.model('Patient', PatientSchema);
