@@ -44,8 +44,8 @@ const initializeDoctorRoutes = (app) => {
   });
 
   /* remove a patient from doctor */
-  doctorRouter.delete('/rmvPatient', async (req, res) => {
-    const doctor = new DoctorModel(req.body);
+  doctorRouter.post('/rmvPatient/:id', async (req, res) => {
+    const doctor = await DoctorModel.findById(req.params.id);
     doctor.patients.pull(req.body);
     try {
       await doctor.save().then((item) => res.send(item));
