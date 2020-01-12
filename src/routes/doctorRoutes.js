@@ -30,6 +30,18 @@ const initializeDoctorRoutes = (app) => {
     }
   });
 
+  doctorRouter.get('/', async (req, res) => {
+    try {
+      const doctor = await DoctorModel.find();
+      res.status(200);
+      await res.json(doctor);
+    } catch (e) {
+      console.error(e);
+      res.status(500);
+      await res.json('Could not get the doctor');
+    }
+  });
+
   /* add a patient to doctor */
   doctorRouter.post('/addPatient/:id', async (req, res) => {
     const doctor = await DoctorModel.findById(req.params.id);
