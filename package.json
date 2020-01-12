@@ -4,8 +4,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"No Tests Yet\" ",
-    "start": "env-cmd -f dev.env node ./server.js",
-    "dev": "env-cmd -f dev.env nodemon ./server.js",
+    "start": "node ./server.js",
+    "dev": "nodemon ./server.js",
     "build": "npm run build server.js"
   },
   "license": "MIT",

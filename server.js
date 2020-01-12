@@ -5,8 +5,9 @@ const initializeDoctorRoutes = require("./src/routes/doctorRoutes");
 
 const bodyParser = require("body-parser");
 
-const PORT = process.env.PORT || 8090;
-const DB_CONNECTION_STRING = process.env.DB_CONNECTION || 'mongodb://localhost:27017/test';
+const PORT = 8080;
+const DB_CONNECTION_STRING = 'mongodb+srv://user1:PGM4Fr4HG6Y5GUTE@cluster0-eiz7g.mongodb.net/db?retryWrites=true&w=majority'
+  || 'mongodb://localhost:27017/test';
 const app = express();
 
 // middle wares
