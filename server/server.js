@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const initializePatientRoutes = require("./src/routes/patientRoutes");
+const initializeDoctorRoutes = require("./src/routes/doctorRoutes");
 
 const bodyParser = require("body-parser");
 
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // initialize the routes
 initializePatientRoutes(app);
+initializeDoctorRoutes(app);
 
 // Connect to DB
 mongoose
