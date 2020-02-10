@@ -34,6 +34,12 @@ target 'HealthCheck' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  pod 'RCTAppleHealthKit', :path => '../node_modules/rn-apple-healthkit'
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
   target 'HealthCheckTests' do
     inherit! :search_paths
     # Pods for testing
